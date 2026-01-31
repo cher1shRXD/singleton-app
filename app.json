@@ -15,7 +15,8 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.cher1shrxd.singletonapp"
+      "bundleIdentifier": "com.cher1shrxd.singletonapp",
+      "appleTeamId": "U4VGJDX962"
     },
     "android": {
       "adaptiveIcon": {
