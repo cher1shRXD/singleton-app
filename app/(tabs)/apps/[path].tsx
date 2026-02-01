@@ -14,6 +14,7 @@ const AppView = () => {
   const router = useRouter();
   const [lastShake, setLastShake] = useState(0);
   const alertVisible = useRef(false);
+  const [timestamp, setTimestamp] = useState(Date.now());
 
   useEffect(() => {
     const setCookie = async () => {
@@ -70,11 +71,13 @@ const AppView = () => {
     <WebView
       style={{ flex: 1 }}
       source={{
-        uri: `${decoded}/?top=${insets.top}&bottom=${insets.bottom}`,
+        uri: `${decoded}/?top=${insets.top}&bottom=${insets.bottom}&_t=${timestamp}`,
       }}
       scrollEnabled={false}
       sharedCookiesEnabled={true}
       thirdPartyCookiesEnabled={true}
+      cacheEnabled={false}
+      cacheMode="LOAD_NO_CACHE"
     />
   );
 };
