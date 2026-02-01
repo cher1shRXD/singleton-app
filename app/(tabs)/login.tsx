@@ -124,6 +124,6 @@ const styles = StyleSheet.create({
   },
   link: {
     marginTop: 20,
-    color: "blue",
+    color: "#888",
   },
 });

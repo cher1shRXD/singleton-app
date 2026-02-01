@@ -1,6 +1,7 @@
-import { TouchableOpacity, Text } from "react-native";
-import { App } from "../types";
 import { useRouter } from "expo-router";
+import { Image, Text, TouchableOpacity, View } from "react-native";
+import { App } from "../types";
+import Favicon from "../../../shared/ui/Favicon";
 
 interface Props {
   data: App;
@@ -16,13 +17,19 @@ const AppItem = ({ data, isLast = false }: Props) => {
         padding: 16,
         borderBottomWidth: isLast ? 0 : 1,
         borderBottomColor: "#eee",
+        flexDirection: "row",
+        alignItems: "center",
+        gap: 12,
       }}
       onPress={() => {
         const encoded = encodeURIComponent(data.path);
         router.replace(`/apps/${encoded}`);
       }}>
-      <Text style={{ fontSize: 18, fontWeight: "bold" }}>{data.name}</Text>
-      <Text style={{ color: "#666" }}>{data.path}</Text>
+      <Favicon url={data.path} />
+      <View style={{ flex: 1 }}>
+        <Text style={{ fontSize: 18, fontWeight: "bold" }}>{data.name}</Text>
+        <Text style={{ color: "#666" }}>{data.path}</Text>
+      </View>
     </TouchableOpacity>
   );
 };
