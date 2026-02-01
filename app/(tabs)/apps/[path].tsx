@@ -36,7 +36,7 @@ const AppView = () => {
       const acceleration = Math.sqrt(x * x + y * y + z * z);
       const now = Date.now();
       if (
-        acceleration > 1.5 &&
+        acceleration > 2.2 &&
         now - lastShake > 1000 &&
         !alertVisible.current
       ) {
